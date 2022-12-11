@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'CSS/table.css' %}">
+ 
+    <title>Users Information</title>
+  </head>
+  <body>
+    <form id="userlist" method="POST">
+      {% csrf_token %}
+      <select name="users" id="info">
+        {% if userinfo %}
+           {% for user_info in userinfo %}
+              {% if user_info.name is user %}
+                 <option value={{ user_info.id_number}} selected>{{ user_info.name}}</option>
+              {% else %}
+                 <option value={{ user_info.id_number}}>{{ user_info.name}}</option>
+              {% endif %}
+           {% endfor %}
+        {% endif %}
+      </select>
+    <button class="submit" id="submit_btn">Display</button>
+   </form>
+<h1>
+  {{ usertype }}
+</h1>
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Fields
+        </th>
+        <th>
+          Value
+        </th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th colspan='3'>
+          {{ usertype }}
+        </th>
+      </tr>
+    </tfoot>
+    <tbody>
+      {% for k,v in user_dict.items %}
+      <tr>
+        <td data-title='Field Name'>
+          {{ k }}  
+        </td>
+        <td data-title='Value'>
+          {{ v }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+
+<h1>
+  {{ billtype }}
+</h1>
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Fields
+        </th>
+        <th>
+          Value
+        </th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th colspan='3'>
+          {{ billtype }}
+        </th>
+      </tr>
+    </tfoot>
+    <tbody>
+      {% for k1,v1 in bill_dict.items %}
+      <tr>
+        <td data-title='Field Name'>
+          {{ k1 }}  
+        </td>
+        <td data-title='Value'>
+          {{ v1 }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+
+  </body>
+</html>
