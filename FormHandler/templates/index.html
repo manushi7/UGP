@@ -15,16 +15,19 @@
 </head>
 
 <body>
+    
     <!-- partial:index.partial.html -->
     <div class="box-form">
         <div class="left">
             <div class="overlay">
-                <h1>Hello World.</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et est sed felis aliquet sollicitudin</p>
+                {% comment %} <img src="FormHandler\static\media\login_background.jpg" style=""> {% endcomment %}
+                <p>{% load static %} <img src="{% static "http://127.0.0.1:8000/media/login_background.jpg" %}" alt="home" />
+                <h1> Welcome to abc Hospital system                 </h1>
+                
+                <p>  This is the login page for abc Patient registration system </p>
                 <span>
-			<p>login with social media</p>
-			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+			
+			
 		</span>
             </div>
         </div>
@@ -49,7 +52,7 @@
 		<input type="checkbox" name="item" checked/>
 		<span class="text-checkbox">Remember me</span>
 	</label>
-                    <p>forget password?</p>
+                    <p>forget password? <a href="{% /templates/PasswordReset.html %}">Click Here</a></p>
                 </div>
 
                 <br>

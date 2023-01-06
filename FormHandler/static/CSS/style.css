@@ -34,22 +34,22 @@ body {
   color: #FFFFFF;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");
+  background-image: url(http://127.0.0.1:8000/media/login_background.jpg);
   overflow: hidden;
 }
 .box-form .left .overlay {
   padding: 30px;
   width: 100%;
   height: 100%;
-  background: #eb9225;
+  background: #eb9225; 
   overflow: hidden;
   box-sizing: border-box;
 }
 .box-form .left .overlay h1 {
-  font-size: 10vmax;
+  font-size: 6vmax;
   line-height: 1;
-  font-weight: 900;
-  margin-top: 40px;
+  font-weight: 500;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .box-form .left .overlay span p {

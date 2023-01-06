@@ -93,4 +93,9 @@ def billing(request):
 	if request.method == 'GET':
 		return render(request, 'billing.html')
 
+def reset_password(request):
+    if request.method == 'GET':
+        return render(request,'PasswordReset.html')
+	
+
 	

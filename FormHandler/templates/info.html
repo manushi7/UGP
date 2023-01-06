@@ -17,8 +17,9 @@
            {% for user_info in userinfo %}
               {% if user_info.name is user %}
                  <option value={{ user_info.id_number}} selected>{{ user_info.name}}</option>
-              {% else %}
-                 <option value={{ user_info.id_number}}>{{ user_info.name}}</option>
+                  {% else %}
+                 {% comment %} {% if user_info.name = user %} {% endcomment %}
+                 <option value={{ user_info.id_number}}>{{ user_info.name}}</optiopn>
               {% endif %}
            {% endfor %}
         {% endif %}
@@ -98,6 +99,10 @@
     </tbody>
   </table>
 </main>
-
+<div class="container">
+  <div class="vertical-center">
+<button class="claim" id="claim_btn" style="background:#3630a3; color:white;" >Claim</button>
+  </div>
+</div>
   </body>
 </html>

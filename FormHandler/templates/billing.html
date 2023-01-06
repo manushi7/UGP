@@ -2,139 +2,217 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!----======== CSS ======== -->
-     
+
     <!----===== Iconscout CSS ===== -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="{% static 'CSS/billing.css' %}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="{% static 'CSS/billing.css' %}" />
+  </head>
+  <body>
     <div class="container">
-        <header>Billing</header>
+      <header>Billing</header>
 
-        <form method='POST'>
-            {% csrf_token %}
-            <div class="form second">
-                <div class="details address">
-                    <span class="title">Billing Details</span>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form second">
+          <div class="details address">
+            <span class="title">Billing Details</span>
 
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>ID number</label>
-                            {% if id_num %}
-                            <input type="text" placeholder="enter your id number" id="Idnum" name="id_num" value='{{id_num}}' readonly>
-                            {% else %}
-                            <input type="text" placeholder="enter your id number" id="Idnum" name="id_num" readonly>
-                           {% endif %}
-                        </div>
+            <div class="fields">
+              <div class="input-field">
+                <label>ID number</label>
+                {% if id_num %}
+                <input
+                  type="text"
+                  placeholder="enter your id number"
+                  id="Idnum"
+                  name="id_num"
+                  value="{{id_num}}"
+                  readonly
+                />
+                {% else %}
+                <input
+                  type="text"
+                  placeholder="enter your id number"
+                  id="Idnum"
+                  name="id_num"
+                  readonly
+                />
+                {% endif %}
+              </div>
 
-                        <div class="input-field">
-                            <label>payment options</label>
-                            <select name="payment">
-                                <option disabled selected>Select payment</option>
-                                <option>cash</option>
-                                <option>cheque</option>
-                                <option>mobile banking</option>
-                                <option>others</option>
-                            </select>
-                        </div>
+              <div class="input-field">
+                <label>payment options</label>
+                <select name="payment">
+                  <option disabled selected>Select payment</option>
+                  <option>cash</option>
+                  <option>cheque</option>
+                  <option>mobile banking</option>
+                  <option>others</option>
+                </select>
+              </div>
 
-                        <div class="input-field">
-                            <label>total charge</label>
-                            <input type="text" placeholder="enter total charge " id="charge" name="charge" >
-                        </div>
+              <div class="input-field">
+                <label>total charge</label>
+                <input
+                  type="text"
+                  placeholder="enter total charge "
+                  id="charge"
+                  name="charge"
+                />
+              </div>
 
-                        <div class="input-field">
-                            <label>Amount paid</label>
-                            <input type="text" placeholder="enter Amount paid" id="Amountpaid" name="amountpaid" >
-                        </div>
+              <div class="input-field">
+                <label>Amount paid</label>
+                <input
+                  type="text"
+                  placeholder="enter Amount paid"
+                  id="Amountpaid"
+                  name="amountpaid"
+                />
+              </div>
 
-                        <div class="input-field">
-                            <label>Balance due</label>
-                            <input type="number" placeholder="enter Balance due" id="Balancedue" name="balancedue">
-                        </div>
+              <div class="input-field">
+                <label>Balance due</label>
+                <input
+                  type="number"
+                  placeholder="enter Balance due"
+                  id="Balancedue"
+                  name="balancedue"
+                  
+                />
+              </div>
 
-                        <div class="input-field">
-                            <label>Billing provider info</label>
-                            <input type="number" placeholder="Enter info" id="Billinfo" name="billinginfo" >
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Insured details">
-                    <span class="title">Insured details</span>
-
-                        <div class="fields">
-                            <div class="input-field">
-                                <label>Insured policy group number</label>
-                                <input type="text" placeholder="Enter id number" id="Ipolicy" name="policy_group" >
-                            </div>
-                
-
-                        <div class="input-field">
-                            <label>Insured Full Name</label>
-                            {% if fname %}
-                            <input type="text" placeholder="Enter full name" id="Iname" name="fullname" value="{{ fname }}">
-                            {% else %}
-                            <input type="text" placeholder="Enter full name" id="Iname" name="fullname" >
-                            {% endif %}
-                        </div>
-
-                        <div class="input-field">
-                            <label>Gender</label>
-                            <select name="gender">
-                                {% if gender %}
-                                <option selected>{{ gender }}</option>
-                                {% else %}
-                                <option disabled selected>Select gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Others</option>
-                                {% endif %}
-                            </select>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Insured address</label>
-                            {% if address %}
-                            <input type="text" placeholder="Enter insured address" id="Iaddress" name="address" value="{{ address }}">
-                            {% else %}
-                            <input type="text" placeholder="Enter insured address" id="Iaddress" name="address">
-                            {% endif %}
-                        </div>
-
-                        <div class="input-field">
-                            <label>Insured Phone number</label>
-                            {% if mobile %}
-                            <input type="text" placeholder="enter insured Phone number" id="Iphno" name="phone_num" value="{{ mobile }}">
-                            {% else %}
-                            <input type="text" placeholder="enter insured Phone number" id="Iphno" name="phone_num">
-                            {% endif %}
-                        </div>
-
-                        <div class="input-field">
-                            <label>Insured plan or program name</label>
-                            <input type="text" placeholder="type here" id= "Iplan" name="program">
-                        </div>
-                    </div>
-
-                    <div class="buttons">
-                        
-                        <button class="submit" id="submitBtn">
-                            <span class="btnSubmit">Submit</span>|
-                            <i class="uil uil-navigator"></i>
-                        </button>
-                    </div>
-                </div> 
+              <div class="input-field">
+                <label>Billing provider info</label>
+                <input
+                  type="text"
+                  placeholder="Enter info"
+                  id="Billinfo"
+                  name="billinginfo"
+                />
+              </div>
             </div>
-        </form>
+          </div>
+
+          <div class="Insured details">
+            <span class="title">Insured details</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Insured policy group number</label>
+                <input
+                  type="text"
+                  placeholder="Enter id number"
+                  id="Ipolicy"
+                  name="policy_group"
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Insured Full Name</label>
+                {% if fname %}
+                <input
+                  type="text"
+                  placeholder="Enter full name"
+                  id="Iname"
+                  name="fullname"
+                  value="{{ fname }}"
+                />
+                {% else %}
+                <input
+                  type="text"
+                  placeholder="Enter full name"
+                  id="Iname"
+                  name="fullname"
+                />
+                {% endif %}
+              </div>
+
+              <div class="input-field">
+                <label>Gender</label>
+                <select name="gender">
+                  {% if gender %}
+                  <option selected>{{ gender }}</option>
+                  {% else %}
+                  <option disabled selected>Select gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Others</option>
+                  {% endif %}
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Insured address</label>
+                {% if address %}
+                <input
+                  type="text"
+                  placeholder="Enter insured address"
+                  id="Iaddress"
+                  name="address"
+                  value="{{ address }}"
+                />
+                {% else %}
+                <input
+                  type="text"
+                  placeholder="Enter insured address"
+                  id="Iaddress"
+                  name="address"
+                />
+                {% endif %}
+              </div>
+
+              <div class="input-field">
+                <label>Insured Phone number</label>
+                {% if mobile %}
+                <input
+                  type="text"
+                  placeholder="enter insured Phone number"
+                  id="Iphno"
+                  name="phone_num"
+                  value="{{ mobile }}"
+                />
+                {% else %}
+                <input
+                  type="text"
+                  placeholder="enter insured Phone number"
+                  id="Iphno"
+                  name="phone_num"
+                />
+                {% endif %}
+              </div>
+
+              <div class="input-field">
+                <label>Insured plan or program name</label>
+                <input
+                  type="text"
+                  placeholder="type here"
+                  id="Iplan"
+                  name="program"
+                />
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="submit" id="submitBtn">
+                <span class="btnSubmit">Submit</span>|
+                <i class="uil uil-navigator"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
 
     <!--<script src="./js/register.js"></script>-->
-</body>
+  </body>
 </html>
