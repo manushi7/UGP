@@ -21,10 +21,12 @@
         <div class="left">
             <div class="overlay">
                 {% comment %} <img src="FormHandler\static\media\login_background.jpg" style=""> {% endcomment %}
-                <p>{% load static %} <img src="{% static "http://127.0.0.1:8000/media/login_background.jpg" %}" alt="home" />
-                <h1> Welcome to abc Hospital system                 </h1>
+                <p>{% load static %} <img src=" /media/images.png " alt="home" width="150" height="160" style="align:middle" />
                 
-                <p>  This is the login page for abc Patient registration system </p>
+                <h1> Welcome abc hospital </h1>
+                
+                <p>  This is the login page for abc Patient registration system </p> 
+                
                 <span>
 			
 			
@@ -48,11 +50,7 @@
 
                 <div class="remember-me--forget-password">
                     <!-- Angular -->
-                    <label>
-		<input type="checkbox" name="item" checked/>
-		<span class="text-checkbox">Remember me</span>
-	</label>
-                    <p>forget password? <a href="{% /templates/PasswordReset.html %}">Click Here</a></p>
+                    <p>forget password? <a href="{% url 'password_reset' %}">Click Here</a></p>
                 </div>
 
                 <br>

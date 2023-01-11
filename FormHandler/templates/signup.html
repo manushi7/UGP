@@ -19,8 +19,11 @@
     <div class="box-form">
         <div class="left">
             <div class="overlay">
-                <h1>Hello World.</h1>
-                <p>this is the signup page for hospital registration system.</p>
+                <p>{% load static %} <img src=" /media/images.png " alt="home" width="150" height="160" style="vertical-align:middle" />
+                
+                    <h1> Welcome abc hospital </h1>
+                    
+                    <p>  This is the signup page for abc Patient registration system </p> 
                 <span>
 			
 		</span>
@@ -31,7 +34,7 @@
         <div class="right">
             <form method="POST">
                 {% csrf_token %}
-                <h5>Register</h5>
+                <h5>SignUp</h5>
                 <p>Don't have an account? <a href="{% url 'index' %}">Login your Account</a> it takes less than a minute</p>
                 <div class="inputs">
                     <input type="text" placeholder="user name" name="username">
@@ -43,18 +46,7 @@
                     <input type="text" placeholder="Email" name="email">
                 </div>
 
-                <br><br>
-
-                <div class="remember-me--forget-password">
-                    <!-- Angular -->
-                    <label>
-		<input type="checkbox" name="item" checked/>
-		<span class="text-checkbox">Remember me</span>
-	</label>
-                    <p>forget password?</p>
-                </div>
-
-                <br>
+                
                 <input type="submit" value="Register"></input>
             </form>
         </div>
